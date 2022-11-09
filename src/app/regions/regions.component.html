@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Region</span>
+      </div>
+      <select class="form-control" [(ngModel)]="region" style="width: auto" (change)="getCountryList()">
+        <option></option>
+        <option *ngFor="let reg of regionLists">{{reg}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-6" *ngIf="region!=''">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Country</span>
+      </div>
+      <select class="form-control" [(ngModel)]="selectedCountry" style="width: auto" (change)="getCountryDetails()">
+        <option></option>
+        <option *ngFor="let countryList of countryLists">{{countryList.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-3" *ngIf="region!=''">
+    <button class="btn btn-primary" (click)="clear()">Clear</button>
+  </div>
+</div>
+<app-country-details *ngIf="selectedCountry!=''"></app-country-details>

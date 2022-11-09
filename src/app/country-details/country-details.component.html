@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr class="text-center">
+          <th>Name</th>
+          <th>Capital</th>
+          <th>Population</th>
+          <th>Currencies</th>
+          <th>Flag</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let details of countryDetailsData">
+          <td class="text-center">{{details['name']}}</td>
+          <td class="text-center">{{details['capital']}}</td>
+          <td>{{details['population']}}</td>
+          <td>
+            <table class="table table-bordered table-sm text-center">
+              <thead class="thead-light">
+              <tr>
+                <th>Code</th>
+                <th>Symbol</th>
+                <th>Currency</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let cur of details['currencies']">
+                <td>{{cur['code']}}</td>
+                <td>{{cur['symbol']}}</td>
+                <td>{{cur['name']}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+          <td><img class="img-thumbnail mx-auto d-block" src="{{details['flag']}}" style="height: 6em; width: auto"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
